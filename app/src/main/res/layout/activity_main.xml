@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtvInputTitle"
                 android:textSize="18sp"
-                android:text="Celsius "/>
+                android:text="Fahrenheit "/>
 
             <EditText
                 android:layout_width="100dp"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtvOutputTitle"
                 android:textSize="18sp"
-                android:text="Fahrenheit "
+                android:text="Celsius "
                 />
 
             <TextView

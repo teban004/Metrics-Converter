@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button swapBtn;
     TextView inputTitle;
     TextView outputTitle;
-    Boolean convertFromCelsius = true;
+    Boolean convertFromFahrenheit = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 if(input.getText() != null) {
                     try {
                         inputValue = Float.parseFloat(input.getText().toString());
-                        if(convertFromCelsius)
-                            calculatedValue = (inputValue * 9 / 5) + 32;
+
+                        if(convertFromFahrenheit)
+                            calculatedValue = (inputValue - 32) * 5/9; // formula to convert Fahrenheit to Celsius
                         else
-                            calculatedValue = (inputValue - 32) * 5/9;
+                            calculatedValue = (inputValue * 9 / 5) + 32; // formula to convert Celsius to Fahrenheit
+
+                        // round value to two decimals
+                        calculatedValue = Math.round(calculatedValue * 100.0f) / 100.0f;
+
+                        // set the result in the output field
                         output.setText(String.valueOf(calculatedValue));
                     } catch (Exception ex) {
                         Toast toast = Toast.makeText(getApplicationContext(), "An exception occurred when calculating Fahrenheit value.", Toast.LENGTH_SHORT);
@@ -63,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void swapUnits(View view) {
-        String tempText;
+        String tempText; // temp variable used to swap values
         inputTitle = findViewById(R.id.txtvInputTitle);
         input = findViewById(R.id.etxtInput);
         outputTitle = findViewById(R.id.txtvOutputTitle);
         output = findViewById(R.id.txtvOutput);
 
-        // switch the value of convertFromCelsius with an XOr-equals true
-        convertFromCelsius ^= true;
+        convertFromFahrenheit ^= true; // switch the value of convertFromCelsius with an XOr-equals true
 
+        // swap the values
         tempText = inputTitle.getText().toString();
         inputTitle.setText(outputTitle.getText().toString());
         outputTitle.setText(tempText);
