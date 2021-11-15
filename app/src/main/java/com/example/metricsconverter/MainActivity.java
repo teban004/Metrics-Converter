@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     private Button convert;
     EditText input;
     TextView output;
+    Button swapBtn;
+    TextView inputTitle;
+    TextView outputTitle;
+    Boolean convertFromCelsius = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         input = findViewById(R.id.etxtInput);
         output = findViewById(R.id.txtvOutput);
+        swapBtn = findViewById(R.id.btnSwap);
 
         input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -37,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 if(input.getText() != null) {
                     try {
                         inputValue = Float.parseFloat(input.getText().toString());
-                        calculatedValue = (inputValue * 9 / 5) + 32;
+                        if(convertFromCelsius)
+                            calculatedValue = (inputValue * 9 / 5) + 32;
+                        else
+                            calculatedValue = (inputValue - 32) * 5/9;
                         output.setText(String.valueOf(calculatedValue));
                     } catch (Exception ex) {
                         Toast toast = Toast.makeText(getApplicationContext(), "An exception occurred when calculating Fahrenheit value.", Toast.LENGTH_SHORT);
@@ -51,7 +60,22 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
+    }
 
+    public void swapUnits(View view) {
+        String tempText;
+        inputTitle = findViewById(R.id.txtvInputTitle);
+        input = findViewById(R.id.etxtInput);
+        outputTitle = findViewById(R.id.txtvOutputTitle);
+        output = findViewById(R.id.txtvOutput);
+
+        // switch the value of convertFromCelsius with an XOr-equals true
+        convertFromCelsius ^= true;
+
+        tempText = inputTitle.getText().toString();
+        inputTitle.setText(outputTitle.getText().toString());
+        outputTitle.setText(tempText);
+        input.setText(output.getText().toString());
 
     }
 }
