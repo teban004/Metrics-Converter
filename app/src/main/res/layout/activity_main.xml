@@ -8,50 +8,70 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textConvert"
+                android:id="@+id/txtvInputTitle"
                 android:textSize="18sp"
-                android:text="Celsius "
-                />
+                android:text="Celsius "/>
 
             <EditText
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/etxtCelsius"
-                android:inputType="numberDecimal|numberSigned"
-                android:textSize="18sp"/>
+                android:id="@+id/etxtInput"
+                android:inputType="numberDecimal|numberSigned"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:id="@+id/btnSwap"
+                android:text="Swap"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvEquivalenceSymbol"
+                android:inputType="numberDecimal|numberSigned"
+                android:textSize="18sp"
+                android:text=" = "/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/equivalenceSymbol"
+                android:id="@+id/txtvOutputTitle"
                 android:textSize="18sp"
                 android:text="Fahrenheit "
                 />
 
-            <EditText
+            <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/etxtFahrenheit"
-                android:inputType="numberDecimal"
+                android:id="@+id/txtvOutput"
+                android:inputType="numberDecimal|numberSigned"
                 android:textSize="18sp"/>
 
         </LinearLayout>
