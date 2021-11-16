@@ -9,46 +9,43 @@
 
     <Button
         android:id="@+id/btnSwap"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:onClick="swapUnits"
         android:text="@string/button_swap"
-        app:layout_constraintStart_toEndOf="@+id/etxtInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etxtInput"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:inputType="numberDecimal|numberSigned"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSwap"
         app:layout_constraintTop_toBottomOf="@+id/txtvInputTitle" />
 
     <TextView
         android:id="@+id/txtvInputTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="@string/title_fahrenheit"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSwap"
+        app:layout_constraintStart_toStartOf="@+id/etxtInput" />
 
     <TextView
         android:id="@+id/txtvOutputTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="@string/title_celsius"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/btnSwap"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/txtvInputTitle" />
 
     <TextView
         android:id="@+id/txtvOutput"
