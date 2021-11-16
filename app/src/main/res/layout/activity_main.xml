@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnSwap"
+        android:id="@+id/btnSwapTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -20,42 +20,93 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etxtInput"
+        android:id="@+id/etxtInputTemperature"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:inputType="numberDecimal|numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/btnSwap"
-        app:layout_constraintTop_toBottomOf="@+id/txtvInputTitle" />
+        android:textSize="@dimen/input_font_size"
+        app:layout_constraintEnd_toStartOf="@+id/btnSwapTemperature"
+        app:layout_constraintTop_toBottomOf="@+id/txtvInputTitleTemperature" />
 
     <TextView
-        android:id="@+id/txtvInputTitle"
+        android:id="@+id/txtvInputTitleTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_fahrenheit"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSwap"
-        app:layout_constraintStart_toStartOf="@+id/etxtInput" />
+        android:textSize="@dimen/unit_title_font_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSwapTemperature"
+        app:layout_constraintStart_toStartOf="@+id/etxtInputTemperature" />
 
     <TextView
-        android:id="@+id/txtvOutputTitle"
+        android:id="@+id/txtvOutputTitleTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/title_celsius"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/btnSwap"
-        app:layout_constraintTop_toTopOf="@+id/txtvInputTitle" />
+        android:textSize="@dimen/unit_title_font_size"
+        app:layout_constraintStart_toEndOf="@+id/btnSwapTemperature"
+        app:layout_constraintTop_toTopOf="@+id/txtvInputTitleTemperature" />
 
     <TextView
-        android:id="@+id/txtvOutput"
+        android:id="@+id/txtvOutputTemperature"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:inputType="numberDecimal|numberSigned"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/btnSwap"
-        app:layout_constraintTop_toBottomOf="@+id/txtvOutputTitle" />
+        android:textSize="@dimen/output_font_size"
+        app:layout_constraintStart_toEndOf="@+id/btnSwapTemperature"
+        app:layout_constraintTop_toBottomOf="@+id/txtvOutputTitleTemperature" />
+
+    <Button
+        android:id="@+id/btnSwapLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/button_swap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSwapTemperature" />
+
+    <TextView
+        android:id="@+id/txtvInputTitleLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_inches"
+        android:textSize="@dimen/unit_title_font_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSwapLength"
+        app:layout_constraintStart_toStartOf="@+id/etxtInputLength" />
+
+    <TextView
+        android:id="@+id/txtvOutputTitleLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/title_centimeters"
+        android:textSize="@dimen/unit_title_font_size"
+        app:layout_constraintStart_toEndOf="@+id/btnSwapLength"
+        app:layout_constraintTop_toTopOf="@+id/txtvInputTitleLength" />
+
+    <EditText
+        android:id="@+id/etxtInputLength"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:inputType="numberDecimal|numberSigned"
+        android:textSize="@dimen/input_font_size"
+        app:layout_constraintEnd_toStartOf="@+id/btnSwapLength"
+        app:layout_constraintTop_toBottomOf="@+id/txtvInputTitleLength" />
+
+    <TextView
+        android:id="@+id/txtvOutputLength"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="numberDecimal|numberSigned"
+        android:textSize="@dimen/output_font_size"
+        app:layout_constraintStart_toStartOf="@+id/txtvOutputTitleLength"
+        app:layout_constraintTop_toBottomOf="@+id/txtvOutputTitleLength" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,8 @@
     <string name="title_fahrenheit">Fahrenheit</string>
     <string name="title_celsius">Celsius</string>
     <string name="button_swap">Swap</string>
+    <string name="title_feet">Feet</string>
+    <string name="title_meters">Meters</string>
+    <string name="title_inches">Inches</string>
+    <string name="title_centimeters">Centimeters</string>
 </resources>

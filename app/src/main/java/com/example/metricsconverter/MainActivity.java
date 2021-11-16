@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        input = findViewById(R.id.etxtInput);
-        output = findViewById(R.id.txtvOutput);
-        swapBtn = findViewById(R.id.btnSwap);
+        input = findViewById(R.id.etxtInputTemperature);
+        output = findViewById(R.id.txtvOutputTemperature);
+        swapBtn = findViewById(R.id.btnSwapTemperature);
 
         input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void swapUnits(View view) {
         String tempText; // temp variable used to swap values
-        inputTitle = findViewById(R.id.txtvInputTitle);
-        input = findViewById(R.id.etxtInput);
-        outputTitle = findViewById(R.id.txtvOutputTitle);
-        output = findViewById(R.id.txtvOutput);
+        inputTitle = findViewById(R.id.txtvInputTitleTemperature);
+        input = findViewById(R.id.etxtInputTemperature);
+        outputTitle = findViewById(R.id.txtvOutputTitleTemperature);
+        output = findViewById(R.id.txtvOutputTemperature);
 
         convertFromFahrenheit ^= true; // switch the value of convertFromCelsius with an XOr-equals true
 
