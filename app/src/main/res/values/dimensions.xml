@@ -2,4 +2,6 @@
     <dimen name="unit_title_font_size">18sp</dimen>
     <dimen name="input_font_size">18sp</dimen>
     <dimen name="output_font_size">18sp</dimen>
+    <dimen name="edit_text_width">100dp</dimen>
+    <dimen name="text_view_width">100sp</dimen>
 </resources>

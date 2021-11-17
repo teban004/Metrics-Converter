@@ -7,4 +7,6 @@
     <string name="title_meters">Meters</string>
     <string name="title_inches">Inches</string>
     <string name="title_centimeters">Centimeters</string>
+    <string name="title_kilograms">Kilograms</string>
+    <string name="title_pounds">Pounds</string>
 </resources>

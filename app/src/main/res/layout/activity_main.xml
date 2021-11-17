@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/etxtInputTemperature"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/edit_text_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:inputType="numberDecimal|numberSigned"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/txtvInputTitleTemperature"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:text="@string/title_fahrenheit"
         android:textSize="@dimen/unit_title_font_size"
@@ -40,7 +40,7 @@
 
     <TextView
         android:id="@+id/txtvOutputTitleTemperature"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/title_celsius"
@@ -50,7 +50,7 @@
 
     <TextView
         android:id="@+id/txtvOutputTemperature"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -73,7 +73,7 @@
 
     <TextView
         android:id="@+id/txtvInputTitleLength"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:text="@string/title_inches"
         android:textSize="@dimen/unit_title_font_size"
@@ -82,7 +82,7 @@
 
     <TextView
         android:id="@+id/txtvOutputTitleLength"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/title_centimeters"
@@ -92,7 +92,7 @@
 
     <EditText
         android:id="@+id/etxtInputLength"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/edit_text_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:inputType="numberDecimal|numberSigned"
@@ -102,12 +102,60 @@
 
     <TextView
         android:id="@+id/txtvOutputLength"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/text_view_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:inputType="numberDecimal|numberSigned"
         android:textSize="@dimen/output_font_size"
         app:layout_constraintStart_toStartOf="@+id/txtvOutputTitleLength"
         app:layout_constraintTop_toBottomOf="@+id/txtvOutputTitleLength" />
+
+    <Button
+        android:id="@+id/btnSwapWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/button_swap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSwapLength" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="@dimen/edit_text_width"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:inputType="numberDecimal|numberSigned"
+        android:textSize="@dimen/input_font_size"
+        app:layout_constraintEnd_toStartOf="@+id/btnSwapWeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtvInputTitleWeight" />
+
+    <TextView
+        android:id="@+id/txtvInputTitleWeight"
+        android:layout_width="@dimen/text_view_width"
+        android:layout_height="wrap_content"
+        android:text="@string/title_pounds"
+        android:textSize="@dimen/output_font_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSwapWeight"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/txtvOutputTitleWeight"
+        android:layout_width="@dimen/text_view_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/title_kilograms"
+        android:textSize="@dimen/output_font_size"
+        app:layout_constraintStart_toEndOf="@+id/btnSwapWeight"
+        app:layout_constraintTop_toTopOf="@+id/txtvInputTitleWeight" />
+
+    <TextView
+        android:id="@+id/txtvOutputWeight"
+        android:layout_width="@dimen/text_view_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/txtvOutputTitleWeight"
+        app:layout_constraintTop_toBottomOf="@+id/txtvOutputTitleWeight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
