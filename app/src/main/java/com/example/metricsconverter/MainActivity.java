@@ -13,28 +13,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText inputTemperature;
-    TextView outputTemperature;
-    Button swapBtnTemperature;
-    TextView inputTitleTemperature;
-    TextView outputTitleTemperature;
     Boolean convertTemperatureFromFahrenheit = true;
-
-    EditText inputLength;
-    TextView outputLength;
-    Button swapBtnLength;
-    TextView inputTitleLength;
-    TextView outputTitleLength;
     Boolean convertLengthFromInches = true;
+    Boolean convertWeightFromPounds = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        inputTemperature = findViewById(R.id.etxtInputTemperature);
-        outputTemperature = findViewById(R.id.txtvOutputTemperature);
-        swapBtnTemperature = findViewById(R.id.btnSwapTemperature);
+        EditText inputTemperature = findViewById(R.id.etxtInputTemperature);
+        TextView outputTemperature = findViewById(R.id.txtvOutputTemperature);
 
         inputTemperature.addTextChangedListener(new TextWatcher() {
             @Override
@@ -72,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
-        inputLength = findViewById(R.id.etxtInputLength);
-        outputLength = findViewById(R.id.txtvOutputLength);
-        swapBtnLength = findViewById(R.id.btnSwapLength);
+        EditText inputLength = findViewById(R.id.etxtInputLength);
+        TextView outputLength = findViewById(R.id.txtvOutputLength);
 
         inputLength.addTextChangedListener(new TextWatcher() {
             @Override
@@ -91,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
                         inputValue = Float.parseFloat(inputLength.getText().toString());
 
                         if(convertLengthFromInches)
-                            calculatedValue = inputValue * 2.54; // formula to convert Fahrenheit to Celsius
+                            calculatedValue = inputValue * 2.54; // formula to convert Inches to Centimeters
                         else
-                            calculatedValue = inputValue / 2.54; // formula to convert Celsius to Fahrenheit
+                            calculatedValue = inputValue / 2.54; // formula to convert Centimeters to Inches
 
                         // round value to two decimals
                         calculatedValue = Math.round(calculatedValue * 100.0) / 100.0;
@@ -112,14 +100,53 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
+        EditText inputWeight = findViewById(R.id.etxtInputWeight);
+        TextView outputWeight = findViewById(R.id.txtvOutputWeight);
+
+        inputWeight.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                double inputValue, calculatedValue;
+                if(inputWeight.getText() != null) {
+                    try {
+                        inputValue = Float.parseFloat(inputWeight.getText().toString());
+
+                        if(convertWeightFromPounds)
+                            calculatedValue = inputValue * 0.45359237; // formula to convert Kilograms to Pounds
+                        else
+                            calculatedValue = inputValue / 0.45359237; // formula to convert Pounds to Kilograms
+
+                        // round value to two decimals
+                        calculatedValue = Math.round(calculatedValue * 100.0) / 100.0;
+
+                        // set the result in the output field
+                        outputWeight.setText(String.valueOf(calculatedValue));
+                    } catch (Exception ex) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "An exception occurred when calculating weight value.", Toast.LENGTH_SHORT);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        } );
+
     }
 
     public void swapTemperatureUnits(View view) {
         String tempText; // temp variable used to swap values
-        inputTitleTemperature = findViewById(R.id.txtvInputTitleTemperature);
-        inputTemperature = findViewById(R.id.etxtInputTemperature);
-        outputTitleTemperature = findViewById(R.id.txtvOutputTitleTemperature);
-        outputTemperature = findViewById(R.id.txtvOutputTemperature);
+        TextView inputTitleTemperature = findViewById(R.id.txtvInputTitleTemperature);
+        EditText inputTemperature = findViewById(R.id.etxtInputTemperature);
+        TextView outputTitleTemperature = findViewById(R.id.txtvOutputTitleTemperature);
+        TextView outputTemperature = findViewById(R.id.txtvOutputTemperature);
 
         convertTemperatureFromFahrenheit ^= true; // switch the value of convertTemperatureFromFahrenheit with an XOr-equals true
 
@@ -133,18 +160,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void swapLengthUnits(View view) {
         String tempText; // temp variable used to swap values
-        inputTitleTemperature = findViewById(R.id.txtvInputTitleLength);
-        inputTemperature = findViewById(R.id.etxtInputLength);
-        outputTitleTemperature = findViewById(R.id.txtvOutputTitleLength);
-        outputTemperature = findViewById(R.id.txtvOutputLength);
+        TextView inputTitleLength = findViewById(R.id.txtvInputTitleLength);
+        EditText inputLength = findViewById(R.id.etxtInputLength);
+        TextView outputTitleLength = findViewById(R.id.txtvOutputTitleLength);
+        TextView outputLength = findViewById(R.id.txtvOutputLength);
 
         convertLengthFromInches ^= true; // switch the value of convertLengthFromInches with an XOr-equals true
 
         // swap the values
-        tempText = inputTitleTemperature.getText().toString();
-        inputTitleTemperature.setText(outputTitleTemperature.getText().toString());
-        outputTitleTemperature.setText(tempText);
-        inputTemperature.setText(outputTemperature.getText().toString());
+        tempText = inputTitleLength.getText().toString();
+        inputTitleLength.setText(outputTitleLength.getText().toString());
+        outputTitleLength.setText(tempText);
+        inputLength.setText(outputLength.getText().toString());
+
+    }
+
+    public void swapWeigthUnits(View view) {
+        String tempText; // temp variable used to swap values
+        TextView inputTitleWeight = findViewById(R.id.txtvInputTitleWeight);
+        EditText inputWeight = findViewById(R.id.etxtInputWeight);
+        TextView outputTitleWeight = findViewById(R.id.txtvOutputTitleWeight);
+        TextView outputWeight = findViewById(R.id.txtvOutputWeight);
+
+        convertWeightFromPounds ^= true; // switch the value of convertLengthFromInches with an XOr-equals true
+
+        // swap the values
+        tempText = inputTitleWeight.getText().toString();
+        inputTitleWeight.setText(outputTitleWeight.getText().toString());
+        outputTitleWeight.setText(tempText);
+        inputWeight.setText(outputWeight.getText().toString());
 
     }
 

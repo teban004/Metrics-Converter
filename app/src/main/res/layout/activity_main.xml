@@ -115,6 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:onClick="swapWeigthUnits"
         android:text="@string/button_swap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -122,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSwapLength" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etxtInputWeight"
         android:layout_width="@dimen/edit_text_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -138,7 +139,7 @@
         android:text="@string/title_pounds"
         android:textSize="@dimen/output_font_size"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnSwapWeight"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/etxtInputWeight" />
 
     <TextView
         android:id="@+id/txtvOutputTitleWeight"
